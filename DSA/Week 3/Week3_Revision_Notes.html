@@ -1,0 +1,817 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Week 3 - Arrays & Matrix Complete Revision Notes</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(135deg, #1a1a2e 0%, #16213e 100%);
+            min-height: 100vh;
+            padding: 20px;
+            color: #e0e0e0;
+        }
+        
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+        
+        h1 {
+            text-align: center;
+            color: #00d4ff;
+            font-size: 2.5rem;
+            margin-bottom: 30px;
+            text-shadow: 0 0 20px rgba(0, 212, 255, 0.5);
+        }
+        
+        .day-card {
+            background: rgba(255, 255, 255, 0.05);
+            border-radius: 15px;
+            padding: 25px;
+            margin-bottom: 30px;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(10px);
+        }
+        
+        .day-title {
+            color: #ff6b6b;
+            font-size: 1.8rem;
+            margin-bottom: 20px;
+            padding-bottom: 10px;
+            border-bottom: 2px solid #ff6b6b;
+        }
+        
+        .topic {
+            background: rgba(0, 212, 255, 0.1);
+            border-radius: 10px;
+            padding: 15px;
+            margin-bottom: 15px;
+            border-left: 4px solid #00d4ff;
+        }
+        
+        .topic h3 {
+            color: #00d4ff;
+            margin-bottom: 10px;
+            font-size: 1.3rem;
+        }
+        
+        .topic p {
+            color: #b0b0b0;
+            line-height: 1.8;
+            margin-bottom: 10px;
+        }
+        
+        .code-block {
+            background: #0d1117;
+            border-radius: 8px;
+            padding: 15px;
+            margin: 10px 0;
+            overflow-x: auto;
+            border: 1px solid #30363d;
+        }
+        
+        .code-block code {
+            color: #58a6ff;
+            font-family: 'Fira Code', 'Consolas', monospace;
+            font-size: 0.95rem;
+            white-space: pre;
+        }
+        
+        .highlight {
+            background: rgba(255, 193, 7, 0.2);
+            padding: 10px 15px;
+            border-radius: 8px;
+            margin: 10px 0;
+            border-left: 4px solid #ffc107;
+        }
+        
+        .highlight strong {
+            color: #ffc107;
+        }
+        
+        .key-points {
+            background: rgba(76, 175, 80, 0.1);
+            border-radius: 10px;
+            padding: 15px;
+            margin: 15px 0;
+            border-left: 4px solid #4caf50;
+        }
+        
+        .key-points h4 {
+            color: #4caf50;
+            margin-bottom: 10px;
+        }
+        
+        .key-points ul {
+            margin-left: 20px;
+        }
+        
+        .key-points li {
+            margin: 8px 0;
+            color: #b0b0b0;
+        }
+        
+        .matrix-visual {
+            background: #1a1a2e;
+            border-radius: 8px;
+            padding: 15px;
+            margin: 15px 0;
+            font-family: monospace;
+            text-align: center;
+            color: #00d4ff;
+        }
+        
+        .warning {
+            background: rgba(244, 67, 54, 0.1);
+            padding: 10px 15px;
+            border-radius: 8px;
+            margin: 10px 0;
+            border-left: 4px solid #f44336;
+            color: #ff8a80;
+        }
+        
+        .summary-box {
+            background: linear-gradient(135deg, rgba(0, 212, 255, 0.1), rgba(255, 107, 107, 0.1));
+            border-radius: 15px;
+            padding: 25px;
+            margin-top: 30px;
+            border: 2px solid rgba(0, 212, 255, 0.3);
+        }
+        
+        .summary-box h2 {
+            color: #00d4ff;
+            margin-bottom: 20px;
+            text-align: center;
+        }
+        
+        .emoji {
+            font-size: 1.2rem;
+        }
+        
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 15px 0;
+        }
+        
+        th, td {
+            padding: 12px;
+            text-align: left;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+        }
+        
+        th {
+            background: rgba(0, 212, 255, 0.2);
+            color: #00d4ff;
+        }
+        
+        td {
+            background: rgba(255, 255, 255, 0.02);
+        }
+        
+        .nav-links {
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+            margin-bottom: 30px;
+            flex-wrap: wrap;
+        }
+        
+        .nav-links a {
+            color: #00d4ff;
+            text-decoration: none;
+            padding: 10px 20px;
+            background: rgba(0, 212, 255, 0.1);
+            border-radius: 25px;
+            transition: all 0.3s ease;
+        }
+        
+        .nav-links a:hover {
+            background: rgba(0, 212, 255, 0.3);
+            transform: translateY(-2px);
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>📚 Week 3 - Arrays & Matrix<br>Complete Revision Notes</h1>
+        
+        <div class="nav-links">
+            <a href="#day1">Day 1 - Arrays Basics</a>
+            <a href="#day2">Day 2 - 2D Arrays</a>
+            <a href="#day3">Day 3 - Array Reverse & Search</a>
+            <a href="#day4">Day 4 - Sorting & Reverse</a>
+            <a href="#day5">Day 5 - Find Unique Element</a>
+        </div>
+
+        <!-- DAY 1 -->
+        <div class="day-card" id="day1">
+            <h2 class="day-title">📅 Day 1 – Arrays Basics</h2>
+            
+            <div class="topic">
+                <h3>🔹 Array Kya Hota Hai?</h3>
+                <p>Array same type ke data ko ek variable mein store karta hai. Jaise marks list ya roll numbers.</p>
+                <div class="highlight">
+                    <strong>💡 Key Point:</strong> Array contiguous memory mein data store karta hai
+                </div>
+            </div>
+            
+            <div class="topic">
+                <h3>🔹 Declaration & Initialization</h3>
+                <div class="code-block">
+<code>// Declaration (size batao)
+int arr[5];
+
+// Initialization (values do)
+int arr[5] = {1, 2, 3, 4, 5};
+
+// Partial initialization (baaki 0 ho jayenge)
+int arr[5] = {1, 2};  // arr = {1, 2, 0, 0, 0}</code>
+                </div>
+            </div>
+            
+            <div class="topic">
+                <h3>🔹 Indexing (Array Access)</h3>
+                <p>Array ka index <strong>0 se start</strong> hota hai!</p>
+                <div class="code-block">
+<code>int arr[5] = {10, 20, 30, 40, 50};
+
+arr[0] → 10  (First element)
+arr[1] → 20  (Second element)
+arr[4] → 50  (Last element)
+
+// ⚠️ arr[5] = ERROR! (Out of bounds)</code>
+                </div>
+                <div class="warning">
+                    ⚠️ Array size 5 hai to valid index 0-4 tak hai!
+                </div>
+            </div>
+            
+            <div class="topic">
+                <h3>🔹 Traversal (Loop se Access)</h3>
+                <div class="code-block">
+<code>int arr[5] = {1, 2, 3, 4, 5};
+
+// Array print karna
+for(int i = 0; i < 5; i++) {
+    cout << arr[i] << " ";
+}
+// Output: 1 2 3 4 5</code>
+                </div>
+            </div>
+            
+            <div class="topic">
+                <h3>🔹 Sum of Array</h3>
+                <div class="code-block">
+<code>int arr[5] = {1, 2, 3, 4, 5};
+int sum = 0;
+
+for(int i = 0; i < 5; i++) {
+    sum += arr[i];
+}
+
+cout << "Sum = " << sum;  // Output: 15</code>
+                </div>
+            </div>
+            
+            <div class="topic">
+                <h3>🔹 Maximum Element Find Karna</h3>
+                <p>Pehle element ko max maan lo, phir baaki se compare karo</p>
+                <div class="code-block">
+<code>#include &lt;iostream&gt;
+using namespace std;
+
+int main() {
+    int arr[3] = {1, 2, 3};
+    int max = arr[0];  // Pehle element ko max maano
+
+    for(int i = 0; i < 3; i++) {
+        if(arr[i] > max) {
+            max = arr[i];  // Agar bada mile to update
+        }
+    }
+
+    cout << "Maximum = " << max << endl;
+    return 0;
+}</code>
+                </div>
+            </div>
+            
+            <div class="topic">
+                <h3>🔹 Minimum Element Find Karna</h3>
+                <p>Same logic, bas condition ulta: arr[i] &lt; min</p>
+                <div class="code-block">
+<code>#include &lt;iostream&gt;
+using namespace std;
+
+int main() {
+    int arr[4] = {1, 2, 3, 0};
+    int min = arr[0];  // Pehle element ko min maano
+
+    for(int i = 0; i < 4; i++) {
+        if(arr[i] < min) {
+            min = arr[i];  // Agar chota mile to update
+        }
+    }
+
+    cout << "Minimum = " << min << endl;
+    return 0;
+}</code>
+                </div>
+            </div>
+            
+            <div class="key-points">
+                <h4>📌 Day 1 Quick Summary:</h4>
+                <ul>
+                    <li>Array index 0 se start hota hai</li>
+                    <li>Size n ho to last index = n-1</li>
+                    <li>Max/Min: Pehle element se compare shuru karo</li>
+                    <li>Loop se traverse: for(i=0; i&lt;n; i++)</li>
+                </ul>
+            </div>
+        </div>
+
+        <!-- DAY 2 -->
+        <div class="day-card" id="day2">
+            <h2 class="day-title">📅 Day 2 – 2D Arrays / Matrix</h2>
+            
+            <div class="topic">
+                <h3>🔹 2D Array Syntax</h3>
+                <p>2D Array = Rows × Columns (Table jaise)</p>
+                <div class="code-block">
+<code>// Declaration
+int a[3][3];   // 3 rows, 3 columns
+
+// Initialization
+int a[2][3] = {
+    {1, 2, 3},    // Row 0
+    {4, 5, 6}     // Row 1
+};
+
+// Access: a[row][col]
+// a[0][0] = 1, a[1][2] = 6</code>
+                </div>
+            </div>
+            
+            <div class="topic">
+                <h3>🔹 Matrix Visual Representation</h3>
+                <div class="matrix-visual">
+<pre>
+        Col 0   Col 1   Col 2
+        ─────   ─────   ─────
+Row 0 │   1       2       3
+Row 1 │   4       5       6
+Row 2 │   7       8       9
+
+📌 a[i][j] → i = row, j = column
+</pre>
+                </div>
+            </div>
+            
+            <div class="topic">
+                <h3>🔹 Matrix Input / Output</h3>
+                <div class="code-block">
+<code>#include&lt;iostream&gt;
+using namespace std;
+
+int main() {
+    int a[3][3];
+    
+    // INPUT
+    cout << "Enter 9 numbers:" << endl;
+    for(int row = 0; row < 3; row++) {
+        for(int col = 0; col < 3; col++) {
+            cin >> a[row][col];
+        }
+    }
+    
+    // OUTPUT
+    cout << "Matrix:" << endl;
+    for(int row = 0; row < 3; row++) {
+        for(int col = 0; col < 3; col++) {
+            cout << a[row][col] << " ";
+        }
+        cout << endl;  // New line after each row
+    }
+    
+    return 0;
+}</code>
+                </div>
+            </div>
+            
+            <div class="topic">
+                <h3>🔹 Row-wise Traversal</h3>
+                <p>➡️ Pehle row complete, phir next row</p>
+                <div class="code-block">
+<code>// Row-wise: Outer loop = row, Inner loop = col
+for(int i = 0; i < r; i++) {
+    for(int j = 0; j < c; j++) {
+        cout << a[i][j] << " ";
+    }
+}
+
+// Output: 1 2 3 4 5 6 7 8 9</code>
+                </div>
+                <div class="matrix-visual">
+<pre>
+Row-wise Output:
+1 → 2 → 3   (Row 0)
+4 → 5 → 6   (Row 1)
+7 → 8 → 9   (Row 2)
+</pre>
+                </div>
+            </div>
+            
+            <div class="topic">
+                <h3>🔹 Column-wise Traversal</h3>
+                <p>⬇️ Pehle column complete, phir next column</p>
+                <div class="code-block">
+<code>// Column-wise: Outer loop = col, Inner loop = row
+for(int j = 0; j < c; j++) {
+    for(int i = 0; i < r; i++) {
+        cout << a[i][j] << " ";
+    }
+}
+
+// Output: 1 4 7 2 5 8 3 6 9</code>
+                </div>
+                <div class="matrix-visual">
+<pre>
+Column-wise Output:
+1 ↓ 4 ↓ 7   (Col 0)
+2 ↓ 5 ↓ 8   (Col 1)
+3 ↓ 6 ↓ 9   (Col 2)
+</pre>
+                </div>
+            </div>
+            
+            <div class="topic">
+                <h3>🔹 Row Sum (Har Row ka Sum)</h3>
+                <div class="code-block">
+<code>for(int i = 0; i < r; i++) {
+    int sum = 0;
+    for(int j = 0; j < c; j++) {
+        sum += a[i][j];
+    }
+    cout << "Row " << i << " sum = " << sum << endl;
+}
+
+// Example for 3x3 matrix {1,2,3},{4,5,6},{7,8,9}
+// Row 0 sum = 6
+// Row 1 sum = 15
+// Row 2 sum = 24</code>
+                </div>
+            </div>
+            
+            <div class="topic">
+                <h3>🔹 Column Sum (Har Column ka Sum)</h3>
+                <div class="code-block">
+<code>for(int j = 0; j < c; j++) {
+    int sum = 0;
+    for(int i = 0; i < r; i++) {
+        sum += a[i][j];
+    }
+    cout << "Col " << j << " sum = " << sum << endl;
+}
+
+// Example for 3x3 matrix {1,2,3},{4,5,6},{7,8,9}
+// Col 0 sum = 12
+// Col 1 sum = 15
+// Col 2 sum = 18</code>
+                </div>
+            </div>
+            
+            <div class="key-points">
+                <h4>📌 Day 2 Golden Tricks:</h4>
+                <ul>
+                    <li><strong>a[i][j]</strong> → i = row, j = column</li>
+                    <li><strong>Horizontal move</strong> = column change (j++)</li>
+                    <li><strong>Vertical move</strong> = row change (i++)</li>
+                    <li><strong>Row-wise:</strong> outer loop row, inner loop col</li>
+                    <li><strong>Column-wise:</strong> outer loop col, inner loop row</li>
+                </ul>
+            </div>
+        </div>
+
+        <!-- DAY 3 -->
+        <div class="day-card" id="day3">
+            <h2 class="day-title">📅 Day 3 – Array Reverse & Searching</h2>
+            
+            <div class="topic">
+                <h3>🔹 Array Reverse (Simple Method)</h3>
+                <p>End se start tak loop chala ke print karo</p>
+                <div class="code-block">
+<code>#include&lt;iostream&gt;
+using namespace std;
+
+int main() {
+    int arr[3] = {1, 2, 3};
+
+    // Ulta loop: i = n-1 se 0 tak
+    for(int i = 3-1; i >= 0; i--) {
+        cout << arr[i] << " ";
+    }
+    // Output: 3 2 1
+    
+    return 0;
+}</code>
+                </div>
+            </div>
+            
+            <div class="topic">
+                <h3>🔹 Linear Search (Element Dhundna)</h3>
+                <p>Array mein element dhundna - ek ek karke check karo</p>
+                <div class="code-block">
+<code>#include&lt;iostream&gt;
+using namespace std;
+
+int main() {
+    int arr[3] = {1, 2, 3};
+    int target = 2;
+    bool found = false;
+
+    for(int i = 0; i < 3; i++) {
+        if(arr[i] == target) {
+            found = true;
+            cout << "Value mil gai at index " << i << endl;
+            break;  // Mil gaya to loop band
+        }
+    }
+    
+    if(!found) {
+        cout << "Value nhi mili" << endl;
+    }
+
+    return 0;
+}</code>
+                </div>
+            </div>
+            
+            <div class="key-points">
+                <h4>📌 Day 3 Key Points:</h4>
+                <ul>
+                    <li>Reverse print: i = n-1 se 0 tak loop</li>
+                    <li>Search: har element se compare karo</li>
+                    <li>bool variable use karo found track karne ke liye</li>
+                    <li>Element mile to break; lagao</li>
+                </ul>
+            </div>
+        </div>
+
+        <!-- DAY 4 -->
+        <div class="day-card" id="day4">
+            <h2 class="day-title">📅 Day 4 – Sorting Check & Array Reverse (Swap Method)</h2>
+            
+            <div class="topic">
+                <h3>🔹 Check if Array is Sorted</h3>
+                <p>Har element ko previous se compare karo</p>
+                <div class="code-block">
+<code>#include&lt;iostream&gt;
+using namespace std;
+
+int main() {
+    int arr[] = {1, 2, 3, 4, 5, 4, 6};
+    int n = 7;
+    bool sorted = true;
+
+    for(int i = 1; i < n; i++) {
+        if(arr[i] < arr[i-1]) {  // Current < Previous?
+            sorted = false;
+            cout << "Array is NOT sorted" << endl;
+            break;
+        }
+    }
+    
+    if(sorted) {
+        cout << "Array is sorted in Ascending order" << endl;
+    }
+    
+    return 0;
+}</code>
+                </div>
+            </div>
+            
+            <div class="topic">
+                <h3>🔹 Sort 0s and 1s</h3>
+                <p>0 aur 1 count karo, phir pehle 0 print karo, phir 1</p>
+                <div class="code-block">
+<code>#include&lt;iostream&gt;
+using namespace std;
+
+int main() {
+    int arr[] = {1, 1, 1, 0, 0, 0, 0};
+    int n = 7;
+    
+    int count0 = 0, count1 = 0;
+    
+    // Count 0s and 1s
+    for(int i = 0; i < n; i++) {
+        if(arr[i] == 0) count0++;
+        else count1++;
+    }
+
+    // Print sorted: pehle 0, phir 1
+    for(int i = 0; i < count0; i++) cout << 0 << " ";
+    for(int i = 0; i < count1; i++) cout << 1 << " ";
+    
+    // Output: 0 0 0 0 1 1 1
+    
+    return 0;
+}</code>
+                </div>
+            </div>
+            
+            <div class="topic">
+                <h3>🔹 Array Reverse (Two Pointer / Swap Method)</h3>
+                <p>⭐ Important technique - Do pointers use karo</p>
+                <div class="code-block">
+<code>#include&lt;iostream&gt;
+using namespace std;
+
+int main() {
+    int arr[] = {1, 2, 3, 4, 5};
+    int n = 5;
+    
+    int i = 0;      // Start pointer
+    int j = n - 1;  // End pointer
+
+    while(i < j) {
+        // Swap arr[i] and arr[j]
+        swap(arr[i], arr[j]);
+        i++;  // Move right
+        j--;  // Move left
+    }
+
+    // Print reversed array
+    for(int k = 0; k < n; k++) {
+        cout << arr[k] << " ";
+    }
+    // Output: 5 4 3 2 1
+    
+    return 0;
+}</code>
+                </div>
+                <div class="matrix-visual">
+<pre>
+Two Pointer Technique:
+
+Initial:  [1, 2, 3, 4, 5]
+           ↑           ↑
+           i           j
+
+Step 1:   [5, 2, 3, 4, 1]  (swap 1 & 5)
+              ↑     ↑
+              i     j
+
+Step 2:   [5, 4, 3, 2, 1]  (swap 2 & 4)
+                 ↑
+               i=j (STOP!)
+
+Final:    [5, 4, 3, 2, 1]
+</pre>
+                </div>
+            </div>
+            
+            <div class="key-points">
+                <h4>📌 Day 4 Key Points:</h4>
+                <ul>
+                    <li>Sorted check: arr[i] &gt;= arr[i-1] for ascending</li>
+                    <li>0/1 sort: Count karo, phir print karo</li>
+                    <li>Two pointer reverse: i = 0, j = n-1, swap until i &lt; j</li>
+                    <li>swap(a, b) function C++ mein built-in hai</li>
+                </ul>
+            </div>
+        </div>
+
+        <!-- DAY 5 -->
+        <div class="day-card" id="day5">
+            <h2 class="day-title">📅 Day 5 – Find Unique/Single Element</h2>
+            
+            <div class="topic">
+                <h3>🔹 Find the Non-Duplicate Element</h3>
+                <p>Array mein jo element sirf ek baar aaya ho use dhundho</p>
+                <div class="code-block">
+<code>#include&lt;iostream&gt;
+using namespace std;
+
+int main() {
+    int arr[] = {2, 1, 9, 1, 2, 3, 9};
+    int n = 7;
+
+    for(int i = 0; i < n; i++) {
+        int target = arr[i];
+        int count = 0;
+
+        // Count kitni baar aaya
+        for(int j = 0; j < n; j++) {
+            if(arr[j] == target) {
+                count++;
+            }
+        }
+        
+        // Agar sirf 1 baar aaya
+        if(count == 1) {
+            cout << "Unique element: " << target << endl;
+            break;
+        }
+    }
+    // Output: Unique element: 3
+
+    return 0;
+}</code>
+                </div>
+            </div>
+            
+            <div class="topic">
+                <h3>🔹 Logic Explanation</h3>
+                <div class="matrix-visual">
+<pre>
+Array: {2, 1, 9, 1, 2, 3, 9}
+
+Element   Count   Unique?
+───────   ─────   ───────
+  2    →    2    →  No
+  1    →    2    →  No
+  9    →    2    →  No
+  3    →    1    →  ✅ YES!
+
+Answer: 3 (sirf ek baar aaya)
+</pre>
+                </div>
+            </div>
+            
+            <div class="key-points">
+                <h4>📌 Day 5 Key Points:</h4>
+                <ul>
+                    <li>Nested loop use karo: outer for element, inner for counting</li>
+                    <li>count == 1 matlab unique element</li>
+                    <li>Time Complexity: O(n²) - Brute force approach</li>
+                    <li>Better approach: XOR method (advanced)</li>
+                </ul>
+            </div>
+        </div>
+
+        <!-- SUMMARY BOX -->
+        <div class="summary-box">
+            <h2>🎯 Week 3 Complete Summary</h2>
+            
+            <table>
+                <tr>
+                    <th>Day</th>
+                    <th>Topic</th>
+                    <th>Key Concept</th>
+                </tr>
+                <tr>
+                    <td>Day 1</td>
+                    <td>Arrays Basics</td>
+                    <td>Declaration, Indexing, Sum, Max, Min</td>
+                </tr>
+                <tr>
+                    <td>Day 2</td>
+                    <td>2D Arrays / Matrix</td>
+                    <td>Row/Column traversal, Input/Output</td>
+                </tr>
+                <tr>
+                    <td>Day 3</td>
+                    <td>Reverse & Search</td>
+                    <td>Linear Search, Reverse print</td>
+                </tr>
+                <tr>
+                    <td>Day 4</td>
+                    <td>Sorting & Reverse</td>
+                    <td>Two Pointer, 0-1 Sort, Sorted Check</td>
+                </tr>
+                <tr>
+                    <td>Day 5</td>
+                    <td>Find Unique</td>
+                    <td>Counting method, Nested loops</td>
+                </tr>
+            </table>
+            
+            <div class="highlight" style="margin-top: 20px;">
+                <strong>🧠 Revision ke liye yaad rakho:</strong>
+                <ul style="margin-left: 20px; margin-top: 10px;">
+                    <li>Array index 0 se start hota hai, last index = size - 1</li>
+                    <li>2D Array: a[row][col] - Row pehle, Column baad mein</li>
+                    <li>Two Pointer technique: Start aur End se shrink karo</li>
+                    <li>Searching: Linear search O(n), Binary search O(log n)</li>
+                    <li>Counting sort 0-1 ke liye efficient hai</li>
+                </ul>
+            </div>
+        </div>
+        
+        <div style="text-align: center; margin-top: 30px; color: #666;">
+            <p>📝 Created for DSA Revision | Week 3 Notes</p>
+            <p>Keep Practicing! 💪</p>
+        </div>
+    </div>
+</body>
+</html>

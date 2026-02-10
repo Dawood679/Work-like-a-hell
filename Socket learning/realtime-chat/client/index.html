@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+    <div id="parent">
+        <input type="text" placeholder="enter your name" id="inputnamebtn">
+        <button id="jointbtn">Join to web socket</button>
+    </div>
+   <script src="https://cdn.socket.io/4.8.3/socket.io.min.js"></script>
+<script>
+  // Connect to the Socket.IO server
+  const socket = io('http://localhost:3000');
+  const parent = document.getElementById("parent")
+    const inputnamebtn = document.getElementById("inputnamebtn")
+    const jointbtn = document.getElementById("jointbtn")
+    socket.on('connection', () => {
+    console.log('Connected: ' + socket.id);
+  });
+  let inputbox1 =document.createElement("input")
+  inputbox1.placeholder = "Enter your msg"
+  let sendbtn = document.createElement("button")
+  sendbtn.textContent = "Send msg"
+    jointbtn.addEventListener("click",()=>{
+        console.log(inputnamebtn.value)
+        socket.emit("join",{username:inputnamebtn.value})
+        inputnamebtn.remove()
+        jointbtn.remove()
+        parent.append(inputbox1)
+        parent.append(sendbtn)
+    })
+
+
+    sendbtn.addEventListener("click",()=>{
+        
+        socket.emit("sendMsg",{msg:inputbox1.value})
+        socket.on("sendMsgtoUsers",(data)=>{
+            console.log(data)
+        })
+    })
+  
+  
+</script>
+
+</body>
+</html>
