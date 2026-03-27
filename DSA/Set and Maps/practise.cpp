@@ -5,35 +5,19 @@ using namespace std;
 int main(){
 
     set<int>mySet;
+    // sum of tow first pair 
 
-    int A[] ={1,2,3,4,5,5};
-    int B[] = {4,3,1,3,5,6};
+    int arr[] = {1,7,6,5,2,9,11,6,5};
+    int target = 11;
 
-   map<int> mapA;
-   map<int>mapB;
-    map<int>Finalmap;
+    for(int i = 0 ; i < 8;i++){
+        int req = target - arr[i];
+        if(mySet.find(req) != mySet.end()){
+            cout<<"Pair mil gaya";
 
-    int countA = 1;
-    for(int i = 0 ; i < 6;i++){
-        if(mapA.at(A[i])){
-            countA++;
-        }else{
-            mapA[i] = 1;
         }
-    }
-     int countB = 1;
-    for(int i = 0 ; i < 6;i++){
-        if(mapA.at(B[i])){
-            countB++;
-        }else{
-            mapA[i] = 1;
-        }
-    }
+        mySet.insert(arr[i]);
 
-    for(int i= 0;i<6;i++){
-        if(mapA[A[i]]>mapB[B[i]]){
-            
-        }
     }
     
     // cout<<mySet<<endl;
